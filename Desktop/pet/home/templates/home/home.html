@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MyPet Website</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel = "stylesheet" type="text/css" href="{% static 'css/scroll.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <header id = "header"> 
+        <nav class ="menu">
+            <ul>
+              <li><a href = "{% url 'hello' %}" <b>Home</b></a></li>
+              <li><a href = "{% url 'about' %}" <b>About</b></a></li>
+              <li><a href = "{% url 'favorites' %}" <b>favorites</b></a></li>
+              <li><a href = "{% url 'contact' %}" <b>Contact</b></a></li>
+                {% if login_session %}
+                    <li><a href="{% url 'user:logout' %}" >Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'user:register' %}" >Signup</a></li>
+                    <li><a href="{% url 'user:login' %}" class="login-btn">Login</a></li>
+                {% endif %}
+        </nav>
+    </header> 
+  <div class="list">
+      <div class="one">
+        <span class="profile"><img src="/static/img/1.jpg" width="550px;" height="550px" alt=""/></span> 
+        <h3><strong>Hello! I'm 린.</strong> <br></h3>
+      </div>
+  </div>
+
+  <div class="list">
+      <div class ="two">
+          <img class = "me" src ="/static/img/2.jpg" alt="" width="450px;" height="500px">
+          <h3 class ="intext"> <strong>Who is 린?<br></strong><br><br>
+            Hello! I'm 린. Welcome to my homepage.<br><br>
+            
+            2살이에요
+            <br>생일은 12월 17일이에요 <br>
+            <br>lovely Poodle
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            </h3>
+      </div>
+  </div>
+  
+  <div class="list">
+      <div class="three">
+          <h1><br><br></h1>
+          <div class = "favorites">
+              <div class="lists">
+                  <img class = "list_img" src="/static/img/4.jpg" alt="">
+                  <p class = "list_text">리니 강아지</p>
+              </div>
+
+              <div class="lists">
+                  <img class = "list_img" src="/static/img/5.jpg" alt="">
+                  <p class = "list_text">같이 놀 때</p>
+              </div>
+
+              <div class="lists">
+                  <img class = "list_img" src="/static/img/6.jpg" alt="">
+                  <p class = "list_text"> 옷 입었을 때</p>
+              </div>
+
+              <div class="lists">
+                  <img class = "list_img" src="/static/img/7.jpg" alt="">
+                  <p class = "list_text"></p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="list">
+    <div class = "four">
+        <img class = "contact_img" src ="/static/img/3.jpg">
+        <a href="https://www.youtube.com/@MONGJA/featured" class="ct">Velog</a>
+        <a href="https://instagram.com/mongja0408?igshid=NTc4MTIwNjQ2YQ==" class="ct">Insta</a>
+        <a href="https://www.facebook.com/mongja0408" class="ct">Facebook</a>
+    </div>
+</div>
+</div>
+</body>
